@@ -1,0 +1,65 @@
+package com.sidorchukandrew.pcoapi.models;
+
+import java.util.Arrays;
+
+public class Songs {
+    private Links links;
+    private SongData[] data;
+    private Meta meta;
+
+    private Songs() {
+
+    }
+
+    private Songs(Builder builder) {
+        links = builder.links;
+        data = builder.data;
+        meta = builder.meta;
+    }
+
+    public static class Builder {
+        private Links links;
+        private SongData[] data;
+        private Meta meta;
+
+        public Builder links(Links links) {
+            this.links = links;
+            return this;
+        }
+
+        public Builder data(SongData[] data) {
+            this.data = data;
+            return this;
+        }
+
+        public Builder meta(Meta meta) {
+            this.meta = meta;
+            return this;
+        }
+
+        public Songs build() {
+            return new Songs(this);
+        }
+    }
+
+    public Links getLinks() {
+        return links;
+    }
+
+    public SongData[] getData() {
+        return data;
+    }
+
+    public Meta getMeta() {
+        return meta;
+    }
+
+    @Override
+    public String toString() {
+        return "Songs{" +
+                "links=" + links +
+                ", data=" + Arrays.toString(data) +
+                ", meta=" + meta +
+                '}';
+    }
+}
