@@ -4,7 +4,7 @@ import com.sidorchukandrew.pcoapi.models.*;
 import java.io.IOException;
 
 
-public class SongsEndpoint extends Endpoint implements Endpoint.CollectionEndpoint {
+public class SongsEndpoint extends Endpoint implements CollectionEndpoint {
 
     public SongsEndpoint(Config config) {
         super(config, "https://api.planningcenteronline.com/services/v2/songs");
@@ -16,6 +16,7 @@ public class SongsEndpoint extends Endpoint implements Endpoint.CollectionEndpoi
     }
 
     public Songs list(SongRequestOptions requestOptions) {
+        String response = http.get(ENDPOINT_URL, requestOptions);
         return null;
     }
 

@@ -1,4 +1,8 @@
 package com.sidorchukandrew.pcoapi.models;
 
-interface RequestOptions {
+import java.util.Map;
+
+public interface RequestOptions {
+
+    Map<String, String> getOptions();
 }

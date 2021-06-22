@@ -1,10 +1,12 @@
 package com.sidorchukandrew.pcoapi.http;
 
+import com.sidorchukandrew.pcoapi.models.RequestOptions;
 import okhttp3.*;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.IOException;
+import java.util.Map;
 
 public class HttpClient {
     private final OkHttpClient client;
@@ -42,6 +44,23 @@ public class HttpClient {
         try (Response response = client.newCall(request).execute()) {
             return response.body().string();
         }
+    }
+
+    public String get(String url, RequestOptions requestOptions) {
+        HttpUrl.Builder httpUrlBuilder = new HttpUrl.Builder();
+        Map<String, String> optionsMap = requestOptions.getOptions();
+        for(Map.Entry<String, String> option : optionsMap.entrySet()) {
+            httpUrlBuilder.addQueryParameter(option.getKey(), option.getValue());
+        }
+
+        HttpUrl httpUrl = httpUrlBuilder.build();
+
+        Request request = new Request.Builder()
+                .url(httpUrl)
+                .get()
+                .build();
+
+        return "";
     }
 
     public String post(String url, String json) throws IOException {

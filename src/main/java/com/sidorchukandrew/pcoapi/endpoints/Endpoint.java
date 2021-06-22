@@ -17,8 +17,4 @@ class Endpoint {
         http = config.getHttpClient();
         objectMapper = config.getObjectMapper();
     }
-
-    public static interface CollectionEndpoint {
-        Object list() throws IOException;
-    }
 }
