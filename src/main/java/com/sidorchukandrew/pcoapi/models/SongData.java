@@ -62,7 +62,6 @@ public class SongData {
         return links;
     }
 
-    @Override
     public String toString() {
         return "SongData{" +
                 "type='" + type + '\'' +

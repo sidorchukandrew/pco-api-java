@@ -1,6 +1,6 @@
 package com.sidorchukandrew.pcoapi.models;
 
-public class CreateSongRequest {
+public class CreateSongRequest implements CreateRequest {
 
     private String title;
     private String admin;
@@ -108,5 +108,28 @@ public class CreateSongRequest {
                 ", hidden=" + hidden +
                 ", themes='" + themes + '\'' +
                 '}';
+    }
+
+    public Song toResource() {
+        SongAttributes attributes = new SongAttributes.Builder()
+                .admin(admin)
+                .author(author)
+                .ccliNumber(ccliNumber)
+                .copyright(copyright)
+                .hidden(hidden)
+                .themes(themes)
+                .title(title)
+                .build();
+
+        SongData songData = new SongData.Builder()
+                .attributes(attributes)
+                .type("Song")
+                .build();
+
+        Song song = new Song.Builder()
+                .data(songData)
+                .build();
+
+        return song;
     }
 }

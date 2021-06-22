@@ -1,10 +1,8 @@
 package com.sidorchukandrew.pcoapi.endpoints;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sidorchukandrew.pcoapi.http.HttpClient;
-import com.sidorchukandrew.pcoapi.interfaces.Config;
-import com.sidorchukandrew.pcoapi.interfaces.IndividualEndpoint;
+import com.sidorchukandrew.pcoapi.models.Config;
 import com.sidorchukandrew.pcoapi.models.Song;
+import com.sidorchukandrew.pcoapi.models.UpdateSongRequest;
 
 import java.io.IOException;
 
@@ -21,5 +19,17 @@ public class SongEndpoint extends Endpoint implements IndividualEndpoint {
         Song song = objectMapper.readValue(response, Song.class);
 
         return song;
+    }
+
+    public void delete() throws IOException {
+        String response = http.delete(ENDPOINT_URL);
+        System.out.println(response);
+    }
+
+    public Song update(UpdateSongRequest updateSongRequest) throws IOException {
+        String json = objectMapper.writeValueAsString(updateSongRequest.toResource());
+        String response = http.update(ENDPOINT_URL, json);
+        Song updatedSong = objectMapper.readValue(response, Song.class);
+        return updatedSong;
     }
 }

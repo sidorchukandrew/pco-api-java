@@ -1,6 +1,6 @@
 package com.sidorchukandrew.pcoapi.models;
 
-public class Song {
+public class Song extends Resource {
     private SongData data;
     private Meta meta;
 

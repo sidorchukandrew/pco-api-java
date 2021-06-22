@@ -1,10 +1,11 @@
 package com.sidorchukandrew.pcoapi.models;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class Songs {
     private Links links;
-    private SongData[] data;
+    private List<SongData> data;
     private Meta meta;
 
     private Songs() {
@@ -19,7 +20,7 @@ public class Songs {
 
     public static class Builder {
         private Links links;
-        private SongData[] data;
+        private List<SongData> data;
         private Meta meta;
 
         public Builder links(Links links) {
@@ -27,7 +28,7 @@ public class Songs {
             return this;
         }
 
-        public Builder data(SongData[] data) {
+        public Builder data(List<SongData> data) {
             this.data = data;
             return this;
         }
@@ -46,7 +47,7 @@ public class Songs {
         return links;
     }
 
-    public SongData[] getData() {
+    public List<SongData> getData() {
         return data;
     }
 
@@ -58,7 +59,7 @@ public class Songs {
     public String toString() {
         return "Songs{" +
                 "links=" + links +
-                ", data=" + Arrays.toString(data) +
+                ", data=" + data +
                 ", meta=" + meta +
                 '}';
     }

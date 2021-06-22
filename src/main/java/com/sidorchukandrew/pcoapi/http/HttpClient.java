@@ -43,4 +43,37 @@ public class HttpClient {
             return response.body().string();
         }
     }
+
+    public String post(String url, String json) throws IOException {
+        Request request = new Request.Builder()
+                .post(RequestBody.create(json, MediaType.parse("application/json")))
+                .url(url)
+                .build();
+
+        try (Response response = client.newCall(request).execute()) {
+            return response.body().string();
+        }
+    }
+
+    public String delete(String url) throws IOException {
+        Request request = new Request.Builder()
+                .delete()
+                .url(url)
+                .build();
+
+        try (Response response = client.newCall(request).execute()) {
+            return response.body().string();
+        }
+    }
+
+    public String update(String url, String json) throws IOException {
+        Request request = new Request.Builder()
+                .patch(RequestBody.create(json, MediaType.parse("application/json")))
+                .url(url)
+                .build();
+
+        try (Response response = client.newCall(request).execute()) {
+            return response.body().string();
+        }
+    }
 }

@@ -1,4 +1,4 @@
-package com.sidorchukandrew.pcoapi.interfaces;
+package com.sidorchukandrew.pcoapi.models;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sidorchukandrew.pcoapi.http.HttpClient;
