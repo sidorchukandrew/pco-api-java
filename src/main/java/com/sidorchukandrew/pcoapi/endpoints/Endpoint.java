@@ -4,8 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sidorchukandrew.pcoapi.http.HttpClient;
 import com.sidorchukandrew.pcoapi.models.Config;
 
-import java.io.IOException;
-
 class Endpoint {
     protected HttpClient http;
     protected ObjectMapper objectMapper;

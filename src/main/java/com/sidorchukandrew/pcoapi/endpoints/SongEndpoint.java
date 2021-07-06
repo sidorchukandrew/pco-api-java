@@ -6,7 +6,7 @@ import com.sidorchukandrew.pcoapi.models.UpdateSongRequest;
 
 import java.io.IOException;
 
-public class SongEndpoint extends Endpoint implements IndividualEndpoint {
+public class SongEndpoint extends Endpoint implements ResourceEndpoint {
     private int songId;
 
     public SongEndpoint(Config config, int songId) {

@@ -1,6 +1,6 @@
 package com.sidorchukandrew.pcoapi.models;
 
-public class SongData {
+public class SongData implements Data {
     private String type;
     private Integer id;
     private SongAttributes attributes;

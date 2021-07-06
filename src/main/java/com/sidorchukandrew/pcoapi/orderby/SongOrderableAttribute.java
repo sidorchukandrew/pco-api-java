@@ -1,4 +1,6 @@
-package com.sidorchukandrew.pcoapi.queryby;
+package com.sidorchukandrew.pcoapi.orderby;
+
+import com.sidorchukandrew.pcoapi.queryby.RequestAttribute;
 
 public enum SongOrderableAttribute implements RequestAttribute {
     TITLE("title"),

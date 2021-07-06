@@ -46,9 +46,9 @@ public class HttpClient {
         }
     }
 
-    public String get(String url, RequestOptions requestOptions) {
-        HttpUrl.Builder httpUrlBuilder = new HttpUrl.Builder();
+    public String get(String url, RequestOptions requestOptions) throws IOException {
         Map<String, String> optionsMap = requestOptions.getOptions();
+        HttpUrl.Builder httpUrlBuilder = HttpUrl.parse(url).newBuilder();
         for(Map.Entry<String, String> option : optionsMap.entrySet()) {
             httpUrlBuilder.addQueryParameter(option.getKey(), option.getValue());
         }
@@ -60,7 +60,9 @@ public class HttpClient {
                 .get()
                 .build();
 
-        return "";
+        try (Response response = client.newCall(request).execute()) {
+            return response.body().string();
+        }
     }
 
     public String post(String url, String json) throws IOException {

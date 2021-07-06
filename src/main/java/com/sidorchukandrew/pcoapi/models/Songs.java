@@ -1,9 +1,8 @@
 package com.sidorchukandrew.pcoapi.models;
 
-import java.util.Arrays;
 import java.util.List;
 
-public class Songs {
+public class Songs implements Collection {
     private Links links;
     private List<SongData> data;
     private Meta meta;

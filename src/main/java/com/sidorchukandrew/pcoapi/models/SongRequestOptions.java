@@ -1,6 +1,6 @@
 package com.sidorchukandrew.pcoapi.models;
 
-import com.sidorchukandrew.pcoapi.queryby.SongOrderableAttribute;
+import com.sidorchukandrew.pcoapi.orderby.SongOrderableAttribute;
 import com.sidorchukandrew.pcoapi.queryby.SongQueryableAttribute;
 
 import java.util.HashMap;
@@ -34,6 +34,16 @@ public class SongRequestOptions implements RequestOptions {
 
         public Builder orderBy(SongOrderableAttribute orderableAttribute) {
             options.put("order", orderableAttribute.getLabel());
+            return this;
+        }
+
+        public Builder offset(Integer offset) {
+            options.put("offset", offset.toString());
+            return this;
+        }
+
+        public Builder perPage(Integer perPage) {
+            options.put("per_page", perPage.toString());
             return this;
         }
 

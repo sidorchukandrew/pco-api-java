@@ -37,6 +37,6 @@ public enum SongQueryableAttribute implements RequestAttribute {
 
     @Override
     public String getLabel() {
-        return null;
+        return label;
     }
 }

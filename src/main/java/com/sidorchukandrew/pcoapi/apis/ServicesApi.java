@@ -18,4 +18,16 @@ public class ServicesApi {
     public SongEndpoint song(int songId) {
         return new SongEndpoint(config, songId);
     }
+
+    public AttachmentTypesEndpoint attachmentTypes() {
+        return new AttachmentTypesEndpoint(config);
+    }
+
+    public EmailTemplatesEndpoint emailTemplates() {
+        return new EmailTemplatesEndpoint(config);
+    }
+
+    public EmailTemplateEndpoint emailTemplate(Integer id) {
+        return new EmailTemplateEndpoint(config, id);
+    }
 }

@@ -2,7 +2,7 @@ package com.sidorchukandrew.pcoapi.models;
 
 import java.time.LocalDateTime;
 
-public class SongAttributes {
+public class SongAttributes implements Attributes {
     private String admin;
     private String author;
     private Integer ccliNumber;

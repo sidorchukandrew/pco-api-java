@@ -2,6 +2,6 @@ package com.sidorchukandrew.pcoapi.endpoints;
 
 import java.io.IOException;
 
-interface IndividualEndpoint {
+interface ResourceEndpoint {
     Object get() throws IOException;
 }

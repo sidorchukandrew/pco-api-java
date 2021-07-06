@@ -1,7 +1,9 @@
 package com.sidorchukandrew.pcoapi.endpoints;
 
+import com.sidorchukandrew.pcoapi.models.Collection;
+
 import java.io.IOException;
 
 public interface CollectionEndpoint {
-    Object list() throws IOException;
+    Collection list() throws IOException;
 }
