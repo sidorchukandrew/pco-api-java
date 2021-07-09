@@ -23,7 +23,6 @@ public class SongEndpoint extends Endpoint implements ResourceEndpoint {
 
     public void delete() throws IOException {
         String response = http.delete(ENDPOINT_URL);
-        System.out.println(response);
     }
 
     public Song update(UpdateSongRequest updateSongRequest) throws IOException {

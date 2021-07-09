@@ -15,15 +15,14 @@ public class SongsEndpoint extends Endpoint implements CollectionEndpoint {
         return objectMapper.readValue(response, Songs.class);
     }
 
-
     public Songs list(SongRequestOptions requestOptions) throws IOException {
         String response = http.get(ENDPOINT_URL, requestOptions);
         Songs songsReturned = objectMapper.readValue(response, Songs.class);
         return songsReturned;
     }
 
-    public Song create(CreateSongRequest createSongRequest) throws IOException {
-        String json = objectMapper.writeValueAsString(createSongRequest.toResource());
+    public Song create(CreateSongRequest createRequest) throws IOException {
+        String json = objectMapper.writeValueAsString(createRequest.toResource());
         String response = http.post(ENDPOINT_URL, json);
         Song createdSong = objectMapper.readValue(response, Song.class);
         return createdSong;

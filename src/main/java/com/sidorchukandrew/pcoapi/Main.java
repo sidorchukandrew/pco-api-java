@@ -7,7 +7,13 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.sidorchukandrew.pcoapi.apis.ServicesApi;
+import com.sidorchukandrew.pcoapi.include.FolderIncludableResource;
+import com.sidorchukandrew.pcoapi.include.MediaIncludableResource;
 import com.sidorchukandrew.pcoapi.models.*;
+import com.sidorchukandrew.pcoapi.orderby.FolderOrderableAttribute;
+import com.sidorchukandrew.pcoapi.orderby.MediaOrderableAttribute;
+import com.sidorchukandrew.pcoapi.queryby.FolderQueryableAttribute;
+import com.sidorchukandrew.pcoapi.queryby.MediaQueryableAttribute;
 
 import java.io.IOException;
 
@@ -17,11 +23,11 @@ public class Main {
         PlanningCenterClient pco = configurePco();
         ServicesApi servicesApi = pco.getServicesApi();
 
-//        try {
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        try {
+            servicesApi.media(2807525).archive();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private static PlanningCenterClient configurePco() {

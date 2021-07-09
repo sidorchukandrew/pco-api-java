@@ -1,6 +1,6 @@
 package com.sidorchukandrew.pcoapi.models;
 
-public class EmailTemplate extends Resource {
+public class EmailTemplate implements Resource {
     private EmailTemplateData data;
     private Meta meta;
 

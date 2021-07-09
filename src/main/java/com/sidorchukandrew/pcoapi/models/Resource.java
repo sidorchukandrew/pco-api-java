@@ -1,4 +1,6 @@
 package com.sidorchukandrew.pcoapi.models;
 
-class Resource {
+public interface Resource {
+    Data getData();
+    Meta getMeta();
 }

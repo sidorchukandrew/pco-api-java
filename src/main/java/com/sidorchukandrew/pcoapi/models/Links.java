@@ -1,11 +1,11 @@
 package com.sidorchukandrew.pcoapi.models;
 
 public class Links {
-    private String self;
-    private String next;
-    private String render;
+    protected String self;
+    protected String next;
+    protected String render;
 
-    private Links() { }
+    protected Links() { }
 
     private Links(Builder builder) {
         self = builder.self;

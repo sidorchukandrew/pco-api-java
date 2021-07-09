@@ -7,6 +7,7 @@ public class Meta {
     private Integer count;
     private String [] canOrderBy;
     private String [] canQueryBy;
+    private String [] canInclude;
     private Parent parent;
     private Next next;
 
@@ -19,6 +20,7 @@ public class Meta {
         canQueryBy = builder.canQueryBy;
         parent = builder.parent;
         next = builder.next;
+        canInclude = builder.canInclude;
     }
 
     public static class Builder {
@@ -28,6 +30,7 @@ public class Meta {
         private String [] canQueryBy;
         private Parent parent;
         private Next next;
+        private String [] canInclude;
 
         public Builder totalCount(Integer totalCount) {
             this.totalCount = totalCount;
@@ -56,6 +59,11 @@ public class Meta {
 
         public Builder next(Next next) {
             this.next = next;
+            return this;
+        }
+
+        public Builder canInclude(String[] canInclude) {
+            this.canInclude = canInclude;
             return this;
         }
 
@@ -88,6 +96,10 @@ public class Meta {
         return next;
     }
 
+    public String[] getCanInclude() {
+        return canInclude;
+    }
+
     @Override
     public String toString() {
         return "Meta{" +
@@ -95,6 +107,7 @@ public class Meta {
                 ", count=" + count +
                 ", canOrderBy=" + Arrays.toString(canOrderBy) +
                 ", canQueryBy=" + Arrays.toString(canQueryBy) +
+                ", canInclude=" + Arrays.toString(canInclude) +
                 ", parent=" + parent +
                 ", next=" + next +
                 '}';

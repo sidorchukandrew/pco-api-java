@@ -31,7 +31,6 @@ public class EmailTemplateEndpoint extends Endpoint implements ResourceEndpoint 
 
     public void delete() throws IOException {
         String response = http.delete(ENDPOINT_URL);
-        System.out.println(response);
     }
 
     // ACTIONS

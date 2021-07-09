@@ -27,7 +27,23 @@ public class ServicesApi {
         return new EmailTemplatesEndpoint(config);
     }
 
-    public EmailTemplateEndpoint emailTemplate(Integer id) {
-        return new EmailTemplateEndpoint(config, id);
+    public EmailTemplateEndpoint emailTemplate(Integer emailTemplateId) {
+        return new EmailTemplateEndpoint(config, emailTemplateId);
+    }
+
+    public FoldersEndpoint folders() {
+        return new FoldersEndpoint(config);
+    }
+
+    public FolderEndpoint folder(Integer folderId) {
+        return new FolderEndpoint(config, folderId);
+    }
+
+    public MediasEndpoint media() {
+        return new MediasEndpoint(config);
+    }
+
+    public MediaEndpoint media(Integer mediaId) {
+        return new MediaEndpoint(config, mediaId);
     }
 }

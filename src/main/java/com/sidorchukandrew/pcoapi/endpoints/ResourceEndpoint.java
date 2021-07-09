@@ -1,7 +1,8 @@
 package com.sidorchukandrew.pcoapi.endpoints;
 
+import com.sidorchukandrew.pcoapi.models.Resource;
 import java.io.IOException;
 
 interface ResourceEndpoint {
-    Object get() throws IOException;
+    Resource get() throws IOException;
 }

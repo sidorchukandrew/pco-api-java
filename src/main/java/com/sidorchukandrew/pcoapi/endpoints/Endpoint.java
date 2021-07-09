@@ -7,6 +7,7 @@ import com.sidorchukandrew.pcoapi.models.Config;
 class Endpoint {
     protected HttpClient http;
     protected ObjectMapper objectMapper;
+    protected Config config;
 
     protected final String ENDPOINT_URL;
 
@@ -14,5 +15,6 @@ class Endpoint {
         ENDPOINT_URL = url;
         http = config.getHttpClient();
         objectMapper = config.getObjectMapper();
+        config = config;
     }
 }
