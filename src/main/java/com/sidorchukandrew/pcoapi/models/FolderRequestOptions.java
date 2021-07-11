@@ -1,8 +1,8 @@
 package com.sidorchukandrew.pcoapi.models;
 
 import com.sidorchukandrew.pcoapi.include.FolderIncludableResource;
-import com.sidorchukandrew.pcoapi.orderby.FolderOrderableAttribute;
-import com.sidorchukandrew.pcoapi.queryby.FolderQueryableAttribute;
+import com.sidorchukandrew.pcoapi.orderby.FolderOrderableParam;
+import com.sidorchukandrew.pcoapi.queryby.FolderQueryableParam;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,13 +23,13 @@ public class FolderRequestOptions implements RequestOptions {
             options = new HashMap<>();
         }
 
-        public Builder queryBy(FolderQueryableAttribute queryableAttribute, String value) {
-            options.put(queryableAttribute.getLabel(), value);
+        public Builder queryBy(FolderQueryableParam queryableParam, String value) {
+            options.put(queryableParam.getLabel(), value);
             return this;
         }
 
-        public Builder orderBy(FolderOrderableAttribute orderableAttribute) {
-            options.put("order", orderableAttribute.getLabel());
+        public Builder orderBy(FolderOrderableParam orderableParam) {
+            options.put("order", orderableParam.getLabel());
             return this;
         }
 

@@ -1,11 +1,13 @@
 package com.sidorchukandrew.pcoapi.models;
 
 import java.util.List;
+import java.util.Map;
 
 public class EmailTemplates implements Collection {
     private Links links;
     private Meta meta;
     private List<EmailTemplateData> data;
+    private List<Map<String, Object>> included;
 
     private EmailTemplates() { }
 
@@ -13,12 +15,14 @@ public class EmailTemplates implements Collection {
         links = builder.links;
         meta = builder.meta;
         data = builder.data;
+        included = builder.included;
     }
 
     public static class Builder {
         private Links links;
         private Meta meta;
         private List<EmailTemplateData> data;
+        private List<Map<String, Object>> included;
 
         public Builder links(Links links) {
             this.links = links;
@@ -32,6 +36,11 @@ public class EmailTemplates implements Collection {
 
         public Builder data(List<EmailTemplateData> data) {
             this.data = data;
+            return this;
+        }
+
+        public Builder included(List<Map<String, Object>> included) {
+            this.included = included;
             return this;
         }
 
@@ -51,10 +60,14 @@ public class EmailTemplates implements Collection {
     }
 
     @Override
-    public List getData() {
+    public List<EmailTemplateData> getData() {
         return data;
     }
 
+    @Override
+    public List<Map<String, Object>> getIncluded() {
+        return included;
+    }
 
     @Override
     public String toString() {
@@ -62,6 +75,7 @@ public class EmailTemplates implements Collection {
                 "links=" + links +
                 ", meta=" + meta +
                 ", data=" + data +
+                ", included=" + included +
                 '}';
     }
 }

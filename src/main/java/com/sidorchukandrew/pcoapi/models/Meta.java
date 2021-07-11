@@ -10,6 +10,7 @@ public class Meta {
     private String [] canInclude;
     private Parent parent;
     private Next next;
+    private Prev prev;
 
     private Meta() { }
 
@@ -21,6 +22,7 @@ public class Meta {
         parent = builder.parent;
         next = builder.next;
         canInclude = builder.canInclude;
+        prev = builder.prev;
     }
 
     public static class Builder {
@@ -31,6 +33,7 @@ public class Meta {
         private Parent parent;
         private Next next;
         private String [] canInclude;
+        private Prev prev;
 
         public Builder totalCount(Integer totalCount) {
             this.totalCount = totalCount;
@@ -67,6 +70,11 @@ public class Meta {
             return this;
         }
 
+        public Builder prev(Prev prev) {
+            this.prev = prev;
+            return this;
+        }
+
         public Meta build() {
             return new Meta(this);
         }
@@ -100,6 +108,11 @@ public class Meta {
         return canInclude;
     }
 
+    public Prev getPrev() {
+        return prev;
+    }
+
+
     @Override
     public String toString() {
         return "Meta{" +
@@ -110,6 +123,7 @@ public class Meta {
                 ", canInclude=" + Arrays.toString(canInclude) +
                 ", parent=" + parent +
                 ", next=" + next +
+                ", prev=" + prev +
                 '}';
     }
 }

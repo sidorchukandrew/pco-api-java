@@ -1,7 +1,6 @@
 package com.sidorchukandrew.pcoapi.endpoints;
 
 import com.sidorchukandrew.pcoapi.models.*;
-import com.sidorchukandrew.pcoapi.queryby.FolderQueryableAttribute;
 
 import java.io.IOException;
 

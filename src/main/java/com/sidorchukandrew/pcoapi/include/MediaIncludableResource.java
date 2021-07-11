@@ -1,8 +1,8 @@
 package com.sidorchukandrew.pcoapi.include;
 
-import com.sidorchukandrew.pcoapi.queryby.RequestAttribute;
+import com.sidorchukandrew.pcoapi.queryby.RequestParam;
 
-public enum MediaIncludableResource implements RequestAttribute {
+public enum MediaIncludableResource implements RequestParam {
     ATTACHMENTS("attachments");
 
     private final String label;

@@ -1,7 +1,7 @@
 package com.sidorchukandrew.pcoapi.models;
 
-import com.sidorchukandrew.pcoapi.orderby.SongOrderableAttribute;
-import com.sidorchukandrew.pcoapi.queryby.SongQueryableAttribute;
+import com.sidorchukandrew.pcoapi.orderby.SongOrderableParam;
+import com.sidorchukandrew.pcoapi.queryby.SongQueryableParam;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,13 +27,13 @@ public class SongRequestOptions implements RequestOptions {
             options = new HashMap<>();
         }
 
-        public Builder queryBy(SongQueryableAttribute queryableAttribute, String value) {
-            options.put(queryableAttribute.getLabel(), value);
+        public Builder queryBy(SongQueryableParam queryableParam, String value) {
+            options.put(queryableParam.getLabel(), value);
             return this;
         }
 
-        public Builder orderBy(SongOrderableAttribute orderableAttribute) {
-            options.put("order", orderableAttribute.getLabel());
+        public Builder orderBy(SongOrderableParam orderableParam) {
+            options.put("order", orderableParam.getLabel());
             return this;
         }
 
@@ -52,4 +52,10 @@ public class SongRequestOptions implements RequestOptions {
         }
     }
 
+    @Override
+    public String toString() {
+        return "SongRequestOptions{" +
+                "options=" + options +
+                '}';
+    }
 }

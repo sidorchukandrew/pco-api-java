@@ -15,6 +15,6 @@ class Endpoint {
         ENDPOINT_URL = url;
         http = config.getHttpClient();
         objectMapper = config.getObjectMapper();
-        config = config;
+        this.config = config;
     }
 }

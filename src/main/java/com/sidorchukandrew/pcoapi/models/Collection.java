@@ -6,4 +6,5 @@ public interface Collection {
     Links getLinks();
     Meta getMeta();
     List getData();
+    List getIncluded();
 }

@@ -1,8 +1,8 @@
 package com.sidorchukandrew.pcoapi.models;
 
-import com.sidorchukandrew.pcoapi.queryby.RequestAttribute;
+import com.sidorchukandrew.pcoapi.queryby.RequestParam;
 
-public enum MediaType implements RequestAttribute {
+public enum MediaType implements RequestParam {
 
     AUDIO("audio"),
     BACKGROUND_AUDIO("background_audio"),

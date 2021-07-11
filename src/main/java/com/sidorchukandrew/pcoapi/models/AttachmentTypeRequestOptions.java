@@ -1,6 +1,6 @@
 package com.sidorchukandrew.pcoapi.models;
 
-import com.sidorchukandrew.pcoapi.orderby.AttachmentTypeOrderableAttribute;
+import com.sidorchukandrew.pcoapi.orderby.AttachmentTypeOrderableParam;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -31,8 +31,8 @@ public class AttachmentTypeRequestOptions implements RequestOptions {
             return this;
         }
 
-        public Builder orderBy(AttachmentTypeOrderableAttribute orderableAttribute) {
-            options.put("order", orderableAttribute.getLabel());
+        public Builder orderBy(AttachmentTypeOrderableParam orderableParam) {
+            options.put("order", orderableParam.getLabel());
             return this;
         }
 

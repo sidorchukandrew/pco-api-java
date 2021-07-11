@@ -87,7 +87,7 @@ public class HttpClient {
         }
     }
 
-    public String update(String url, String json) throws IOException {
+    public String patch(String url, String json) throws IOException {
         Request request = new Request.Builder()
                 .patch(RequestBody.create(json, MediaType.parse("application/json")))
                 .url(url)

@@ -23,14 +23,14 @@ public class EmailTemplateEndpoint extends Endpoint implements ResourceEndpoint 
 
     public EmailTemplate update(UpdateEmailTemplateRequest updateRequest) throws IOException {
         String json = objectMapper.writeValueAsString(updateRequest.toResource());
-        String response  = http.update(ENDPOINT_URL, json);
+        String response  = http.patch(ENDPOINT_URL, json);
 
         EmailTemplate updatedEmailTemplate = objectMapper.readValue(response, EmailTemplate.class);
         return updatedEmailTemplate;
     }
 
     public void delete() throws IOException {
-        String response = http.delete(ENDPOINT_URL);
+        http.delete(ENDPOINT_URL);
     }
 
     // ACTIONS

@@ -1,7 +1,7 @@
 package com.sidorchukandrew.pcoapi.models;
 
 public class EmailTemplateRelationships {
-    private TemplateOwner templateOwner;
+    private Relationship templateOwner;
 
     private EmailTemplateRelationships() { }
 
@@ -10,9 +10,9 @@ public class EmailTemplateRelationships {
     }
 
     public static class Builder {
-        private TemplateOwner templateOwner;
+        private Relationship templateOwner;
 
-        public Builder templateOwner(TemplateOwner templateOwner) {
+        public Builder templateOwner(Relationship templateOwner) {
             this.templateOwner = templateOwner;
             return this;
         }
@@ -22,7 +22,7 @@ public class EmailTemplateRelationships {
         }
     }
 
-    public TemplateOwner getTemplateOwner() {
+    public Relationship getTemplateOwner() {
         return templateOwner;
     }
 

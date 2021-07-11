@@ -29,7 +29,7 @@ public class FolderEndpoint extends Endpoint implements ResourceEndpoint {
 
     public Folder update(UpdateFolderRequest updateRequest) throws IOException {
         String json = objectMapper.writeValueAsString(updateRequest.toResource());
-        String response = http.update(ENDPOINT_URL, json);
+        String response = http.patch(ENDPOINT_URL, json);
 
         Folder updatedFolder = objectMapper.readValue(response, Folder.class);
         return updatedFolder;

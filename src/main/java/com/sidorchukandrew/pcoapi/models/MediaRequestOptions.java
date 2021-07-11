@@ -1,11 +1,11 @@
 package com.sidorchukandrew.pcoapi.models;
 
+import com.sidorchukandrew.pcoapi.filterby.MediaFilterableParam;
 import com.sidorchukandrew.pcoapi.include.MediaIncludableResource;
-import com.sidorchukandrew.pcoapi.orderby.MediaOrderableAttribute;
-import com.sidorchukandrew.pcoapi.queryby.MediaQueryableAttribute;
+import com.sidorchukandrew.pcoapi.orderby.MediaOrderableParam;
+import com.sidorchukandrew.pcoapi.queryby.MediaQueryableParam;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class MediaRequestOptions implements RequestOptions {
     private Map<String, String> options;
@@ -18,18 +18,20 @@ public class MediaRequestOptions implements RequestOptions {
 
     public static class Builder {
         private Map<String, String> options;
+        private Set<String> filters;
 
         public Builder() {
             options = new HashMap<>();
+            filters = new HashSet<>();
         }
 
-        public Builder queryBy(MediaQueryableAttribute queryableAttribute, String value) {
-            options.put(queryableAttribute.getLabel(), value);
+        public Builder queryBy(MediaQueryableParam queryableParam, String value) {
+            options.put(queryableParam.getLabel(), value);
             return this;
         }
 
-        public Builder orderBy(MediaOrderableAttribute orderableAttribute) {
-            options.put("order", orderableAttribute.getLabel());
+        public Builder orderBy(MediaOrderableParam orderableParam) {
+            options.put("order", orderableParam.getLabel());
             return this;
         }
 
@@ -48,8 +50,29 @@ public class MediaRequestOptions implements RequestOptions {
             return this;
         }
 
+        public Builder filterBy(MediaFilterableParam filterableParam) {
+            filters.add(filterableParam.getLabel());
+            return this;
+        }
+
         public MediaRequestOptions build() {
+            if(!filters.isEmpty()) {
+                addFiltersToOptions();
+            }
+
             return new MediaRequestOptions(this);
+        }
+
+        private void addFiltersToOptions() {
+            StringBuilder joinedFilters = new StringBuilder();
+            Iterator<String> iterator = filters.iterator();
+
+            while(iterator.hasNext()) {
+                joinedFilters.append(iterator.next());
+                if(iterator.hasNext()) joinedFilters.append(",");
+            }
+
+            options.put("filter", joinedFilters.toString());
         }
 
     }

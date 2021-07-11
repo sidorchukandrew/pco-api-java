@@ -27,7 +27,7 @@ public class SongEndpoint extends Endpoint implements ResourceEndpoint {
 
     public Song update(UpdateSongRequest updateSongRequest) throws IOException {
         String json = objectMapper.writeValueAsString(updateSongRequest.toResource());
-        String response = http.update(ENDPOINT_URL, json);
+        String response = http.patch(ENDPOINT_URL, json);
         Song updatedSong = objectMapper.readValue(response, Song.class);
         return updatedSong;
     }
