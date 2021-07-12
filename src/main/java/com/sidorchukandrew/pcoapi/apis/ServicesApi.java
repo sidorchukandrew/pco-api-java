@@ -46,4 +46,8 @@ public class ServicesApi {
     public MediaEndpoint media(Integer mediaId) {
         return new MediaEndpoint(config, mediaId);
     }
+
+    public PeopleEndpoint people() { return new PeopleEndpoint(config); }
+
+    public PersonEndpoint person(Integer personId) { return new PersonEndpoint(config, personId); }
 }

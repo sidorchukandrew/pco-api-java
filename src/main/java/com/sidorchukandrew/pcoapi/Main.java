@@ -8,12 +8,18 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.sidorchukandrew.pcoapi.apis.ServicesApi;
 import com.sidorchukandrew.pcoapi.include.AttachmentIncludableResource;
+import com.sidorchukandrew.pcoapi.include.AvailableSignupIncludableResource;
+import com.sidorchukandrew.pcoapi.include.SignupSheetIncludableResource;
 import com.sidorchukandrew.pcoapi.models.*;
 import com.sidorchukandrew.pcoapi.orderby.AttachmentOrderableParam;
+import com.sidorchukandrew.pcoapi.orderby.PersonOrderableParam;
 import com.sidorchukandrew.pcoapi.queryby.AttachmentQueryableParam;
+import com.sidorchukandrew.pcoapi.queryby.PersonQueryableParam;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.List;
 
 public class Main {
 
@@ -25,12 +31,19 @@ public class Main {
         ServicesApi servicesApi = pco.getServicesApi();
 
         try {
-            TagRequestOptions options = new TagRequestOptions.Builder()
-                    .offset(0)
+            SignupSheetRequestOptions options = new SignupSheetRequestOptions.Builder()
+                    .include(SignupSheetIncludableResource.SCHEDULED_PEOPLE)
+                    .include(SignupSheetIncludableResource.SIGNUP_SHEET_METADATA)
                     .build();
 
-            Tags tags = servicesApi.media(2815262).tags().list(options);
-            print(tags);
+
+            SignupSheet signupSheet = servicesApi
+                    .person(43874515)
+                    .availableSignup(1150437)
+                    .signupSheet("i24603944p53766514t4549299o675231789")
+                    .get(options);
+
+            print(signupSheet);
         } catch (Exception e) {
             e.printStackTrace();
         }
