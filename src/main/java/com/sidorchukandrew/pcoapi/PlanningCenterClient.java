@@ -5,9 +5,9 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.sidorchukandrew.pcoapi.apis.ServicesApi;
+import com.sidorchukandrew.pcoapi.apis.services.ServicesApi;
 import com.sidorchukandrew.pcoapi.http.HttpClient;
-import com.sidorchukandrew.pcoapi.models.Config;
+import com.sidorchukandrew.pcoapi.apis.services.models.Config;
 
 public class PlanningCenterClient implements Config {
     private HttpClient httpClient;
@@ -32,12 +32,14 @@ public class PlanningCenterClient implements Config {
         objectMapper.registerModule(new JavaTimeModule());
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+
         servicesApi = new ServicesApi(this);
     }
 
     public ServicesApi getServicesApi() {
         return servicesApi;
     }
+
 
     public HttpClient getHttpClient() {
         return httpClient;

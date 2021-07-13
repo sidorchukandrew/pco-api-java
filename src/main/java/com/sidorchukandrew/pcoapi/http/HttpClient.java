@@ -1,6 +1,6 @@
 package com.sidorchukandrew.pcoapi.http;
 
-import com.sidorchukandrew.pcoapi.models.RequestOptions;
+import com.sidorchukandrew.pcoapi.apis.services.models.RequestOptions;
 import okhttp3.*;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
