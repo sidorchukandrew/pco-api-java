@@ -37,7 +37,7 @@ public class Main {
     }
 
     private static PlanningCenterClient configurePco() {
-        return new PlanningCenterClient("a0e633937f9cf930524402fef95bda22da3d3fd551bba5d0b5c3f6de4e4c8777", "6b7f245e326ec9e9dacdab3fedd2e05db23e4ac6447203613333f90ca09b4b26");
+        return new PlanningCenterClient("", "");
     }
 
     public static void print(Object object) throws IOException {
